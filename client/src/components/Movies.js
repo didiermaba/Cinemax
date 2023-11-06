@@ -4,21 +4,29 @@ const Movies = ({ movies }) => {
   // lien IMDB
   const imdb = "https://imdb.com/title";
   return (
+    
     <div className="movies">
+      
       {movies.map((movie) => (
         <div className="movie" key={movie.imdbID}>
+          <form className="favorite" method="POST" action="http://localhost:5000/api/save">
+            <input type="hidden" name="imdbID" value={movie.imdbID} />
+            <button type="submit" className="btn-favorite">
+              <img src="https://api.iconify.design/mdi:star-circle.svg" alt="star" width="50" />
+            </button>
+          </form>
           <div className="movie-info">
             <img
               src={
                 movie.Poster !== "N/A"
                   ? movie.Poster
-                  : "https://placehold.co/300x450/008080/FFF?text=Image+indisponible"
+                  : "https://placehold.co/300x450/000000/FFF?text=Non+disponible"
               }
-              alt
+              alt={movie.Title}
             />
             <h3>{movie.Title}</h3>
             <p>
-              Voir les détauils{""}
+              Voir les détails
               <a href={imdb + movie.imdbID} target="_blank">
                 IMDB
               </a>
