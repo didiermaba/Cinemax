@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
+import cinemaxLogo from "../assets/cinemax-lg.png";
 import Movies from "../components/Movies";
+import Nav from "../components/Nav";
+
+
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]); // liste de favoris
@@ -62,12 +66,16 @@ const Favorites = () => {
 
   return (
     <div>
-      <h1>Favorites</h1>
-
+      <Nav />
+      <header>
+      <img src={cinemaxLogo} className="logo" alt="logo cinema" />
+      <h1 className="tang">Favorites</h1>
+      </header>
       <div>
         <Movies movies={movies} />
       </div>
     </div>
+   
   );
 };
 

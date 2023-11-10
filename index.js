@@ -12,6 +12,7 @@ const cors = require("cors");
 const PORT = 5000; // Définition du port d'écoute
 const fs = require("fs"); // Module pour gérer les fichiers
 const Save = require("./functions/Save"); // Importation de la fonction Save
+const path = require("path"); // Module pr gerer les chemins de fichiers
 // const Delete = require("./functions/Delete"); // Importation de la fonction Delete
 
 // ------------------------- ROUTES ------------------------- //
@@ -30,9 +31,12 @@ const Save = require("./functions/Save"); // Importation de la fonction Save
  */
 app.use(express.urlencoded({ extended: true }), cors());
 
-app.get("/", (req, res) => {
-  res.redirect("/");
-})
+// Extension permettant au sever de lire et renvoyer du json
+app.use(express.json());
+
+// Définition du dossier build ou dist pour les fichiers statiques
+app.use(express.static("./client/build"));
+
 // Route permettant de traiter l'enregistrement d'un film dans la liste des favoris
 app.post("/api/save", (req, res) => {
   const imdbID = req.body.imdbID; // On récupère les données envoyées par le formulaire
@@ -45,14 +49,18 @@ app.post("/api/save", (req, res) => {
 
 //route d'accès aux données de data.json
 app.get("/api/favorites", (req, res) => {
-  res.sendFile(__dirname + "/data.json"); 
-
+  res.sendFile(__dirname + "/data.json");
 });
 
 //Route permettant de traiter la suppression d'un film dans la liste des favoris
 app.post("/api/delete", (req, res) => {
   const imdbID = req.body; // On récupère les données envoyées par le formulaire
   Delete(imdbID); // On appelle la fonction Delete en lui envoyant les données
+});
+
+// Route principale qui redirige vers l'app React
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 /** Lancement du serveur

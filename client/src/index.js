@@ -7,6 +7,7 @@ import Favorites from "./pages/Favorites";
 
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",

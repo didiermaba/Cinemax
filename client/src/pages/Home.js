@@ -4,6 +4,7 @@ import cinemaxLogo from "../assets/cinemax-lg.png";
 import { useEffect, useState } from "react";
 import Search from "../components/Search";
 import Movies from "../components/Movies";
+import Nav from "../components/Nav";
 
 export default function App() {
   // OMDB API
@@ -33,6 +34,8 @@ export default function App() {
   }, []);
 
   return (
+    <>
+    <Nav />
     <div className="App">
       <header>
         <img src={cinemaxLogo} className="logo" alt="logo cinema" />
@@ -43,8 +46,10 @@ export default function App() {
         />
       </header>
       <main>
+        
         <Movies movies={movies} />
       </main>
     </div>
+    </>
   );
 }

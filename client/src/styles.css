@@ -215,3 +215,26 @@ input[type="text"]:focus {
   object-fit: none;
   padding-top: 0;
 }
+/* Nav */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65em;
+  background: #333;
+  border-bottom: 1px solid #f9f9f9;
+}
+.nav {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.nav-item a {
+  text-decoration: none;
+  color: #fff;
+}
+.tang {
+ font-family: serif;
+ font-size: 3rem; 
+}
