@@ -4,15 +4,17 @@ const Movies = ({ movies }) => {
   // lien IMDB
   const imdb = "https://imdb.com/title";
   return (
-    
     <div className="movies">
-      
       {movies.map((movie) => (
         <div className="movie" key={movie.imdbID}>
-          <form className="favorite" method="POST" action="http://localhost:5000/api/save">
+          <form className="favorite" method="POST" action="/api/save">
             <input type="hidden" name="imdbID" value={movie.imdbID} />
             <button type="submit" className="btn-favorite">
-              <img src="https://api.iconify.design/mdi:star-circle.svg" alt="star" width="50" />
+              <img
+                src="https://api.iconify.design/mdi:star-circle.svg"
+                alt="star"
+                width="50"
+              />
             </button>
           </form>
           <div className="movie-info">

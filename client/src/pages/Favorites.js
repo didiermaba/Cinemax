@@ -15,11 +15,10 @@ const Favorites = () => {
    */
   const fetchFavorites = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/favorites`);
+      const res = await fetch(`/api/favorites`);
       const data = await res.json();
       if (data.favorites) {
         setFavorites(data.favorites); // On stock les données ds la const favorites
-        console.log(favorites);
       }
     } catch (err) {
       console.log(
@@ -40,9 +39,9 @@ const Favorites = () => {
           Title: data.Title,
           Poster: data.Poster,
         });
-        if (moviesArray.length > 0) {
-          setMovies(moviesArray);
-        }
+      }
+      if (moviesArray.length > 0) {
+        setMovies(moviesArray);
       }
     } catch (err) {
       console.log(

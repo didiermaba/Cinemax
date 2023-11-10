@@ -4,7 +4,8 @@
   "description": "api de gestion de l'application cinemax",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "client": "cd client && npm start"
   },
   "author": "\"didier\"",
   "license": "ISC",
