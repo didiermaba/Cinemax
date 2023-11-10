@@ -1,9 +1,9 @@
-import "./styles.css";
+
 //  http://www.omdbapi.com/?i=tt3896198&apikey=486d5299
-import cinemaxLogo from "./assets/cinemax-lg.png";
+import cinemaxLogo from "../assets/cinemax-lg.png";
 import { useEffect, useState } from "react";
-import Search from "./components/Search";
-import Movies from "./components/Movies";
+import Search from "../components/Search";
+import Movies from "../components/Movies";
 
 export default function App() {
   // OMDB API
